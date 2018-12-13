@@ -1,0 +1,48 @@
+
+#cont
+{
+    background-image: url("./../../assets/images/bg5.jpg")
+}
+#titr
+{text-align: center !important;
+    
+    color: #104c1e  !important;
+    margin-bottom: 88px ;
+    padding-top: 61px;
+}
+.form-row
+{
+    color: #04190b;
+    text-decoration-style: solid;
+}
+.btn-primary
+{
+    border-radius: 30px;
+    margin-left: 50%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: #04190b;
+    background-color: #8acb69;
+    border-color: #1e7e34;
+}
+#titr2
+{   
+    text-align: center !important;
+    color: #104c1e  !important;
+    margin-bottom: 88px ;
+    padding-top: 61px;
+    padding-top: 61px;
+    background: #ececec;
+    padding-bottom: 60px;
+    
+}
+#mg
+{
+    margin-top: -88px !important;
+}
+#sec2
+{
+    background: #ececec;
+    align-content: center !important;
+}
+

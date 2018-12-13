@@ -1,0 +1,62 @@
+.bg-light {
+    background-color: #81c75deb!important;
+   
+}
+#tete
+{    
+    background-color: #81c75deb;
+    
+}
+#currency
+{
+margin-left: 1000px;
+margin-top: 3px;
+
+}
+#log {
+    margin-left: 10px !important;
+    margin-top: 3px;
+}
+.nav-item , .nav-link
+{
+    color: #0f5828 !important; 
+    text-decoration-style: solid !important; 
+   
+}
+.dropdown-menu.show
+{
+    margin-left: 538px ;
+    margin-top: -23px;
+}
+#logo
+{
+    width: 156px;
+    height: 109px;
+    margin-top: -32px;
+    margin-bottom: -32px;
+    margin-left: -32px;
+}
+.btn-group>.btn:not(:first-child) {
+    margin-left: 6px;
+}
+
+
+#lab
+{
+    text-align: justify;
+    margin-left: 5px;
+}
+.modal-dialog
+{
+width: 500px !important;
+}
+#titreModal
+{
+    text-align: center !important;
+    padding-left: 140px;
+    color: blue;
+}
+.modal-header
+{
+    background-color: beige;
+}

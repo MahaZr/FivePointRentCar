@@ -1,0 +1,26 @@
+#pied
+{ background: url("./../../assets/images/footrt4.jpg");
+   
+}
+#list{
+    margin-top: 50px;
+    color:white;
+}
+a
+{
+    color:  white !important;
+    text-decoration-style: solid;
+}
+#resSoc
+{
+    margin-top: 50px;
+    padding-block-start: 6px;
+    padding-left: 132px;
+    color: white !important;
+}
+.res{
+    margin-left: 170px !important;
+}
+#sn
+{text-align:center;
+}
