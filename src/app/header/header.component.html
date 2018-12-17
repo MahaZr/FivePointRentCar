@@ -17,39 +17,39 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="titreModal">ENREGISTREMENT</h5>
+            <h5 class="modal-title" id="titreModal" >ENREGISTREMENT</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="row">
-              <form>
+              <form (ngSubmit)="submit(f)" #f="ngForm"> 
                 <label> Détails personnels:</label>
                 <div class="form-group row">
                   <div class="col-md-5" id="lab"><label> Titre *:</label></div>
-                  <div class="col-md-7"><select>
-                      <option> Monsieur</option>
-                      <option> Madame</option>
+                  <div class="col-md-7" ><select ngModel name="titre">
+                      <option value="Mr"> Monsieur</option>
+                      <option value="Ms"> Madame </option>
                     </select></div>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-5" id="lab">Prénom*</div>
-                  <div class="col-md-7"> <input type="text"></div>
+                  <div class="col-md-7"> <input type="text" ngModel name="prenom"></div>
                 </div>
                 <div class="form-group row">
 
                   <div class="col-md-5" id="lab">Nom de famille*</div>
-                  <div class="col-md-7"> <input type="text"></div>
+                  <div class="col-md-7"> <input type="text" ngModel name="nom"></div>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-5" id="lab"> Email</div>
-                  <div class="col-md-7"> <input type="text" id="staticEmail"></div>
+                  <div class="col-md-7"> <input type="text" id="staticEmail" ngModel name="mail"></div>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-5" id="lab">Password</div>
                   <div class="col-sm-7">
-                    <input type="password" id="inputPassword" placeholder="Password">
+                    <input type="password" id="inputPassword" placeholder="Password" ngModel name="pwd">
                   </div>
                 </div>
               </form>
@@ -57,7 +57,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-            <button type="button" class="btn btn-primary">Enregistrer</button>
+            <button type="button" class="btn btn-primary" (click)="submit(f)">Enregistrer</button>
           </div>
         </div>
       </div>
@@ -79,12 +79,12 @@
             <form id="form2"  >
               <div class="form-group row">
                 <label> Nom d'utilisteur ou adresse mail :</label></div>
-              <div class="form-group row"> <input type="text" id="adr" [(ngModel)]="nom"> </div>
+              <div class="form-group row"> <input type="text" id="adr" ngModel name ="nom"> </div>
 
               <div class="form-group row">
                 <label>Mot de passe :</label></div>
               <div class="form-group row" > <input type="text" id="pwd"  
-                [(ngModel)]="pwd"></div>
+                ngModel name="pwd"></div>
 
               <div class="form-group row">
                 <input type="checkbox">Se souvenir de moi
