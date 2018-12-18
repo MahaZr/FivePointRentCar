@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import{FormsModule} from '@angular/Forms';
+import {FormsModule} from '@angular/Forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,14 +12,18 @@ import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormulaireComponent } from './location/formulaire/formulaire.component';
+import { HttpModule } from '@angular/http';
+import { AmadeusService } from './amadeus.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LocationComponent,
     HeaderComponent,
     FooterComponent,
-    FormulaireComponent,
-    
+    FormulaireComponent
+
   ],
   imports: [
     BrowserModule,
@@ -27,9 +31,10 @@ import { FormulaireComponent } from './location/formulaire/formulaire.component'
     FormsModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [AmadeusService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

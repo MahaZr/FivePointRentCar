@@ -1,9 +1,18 @@
 import { Injectable } from '@angular/core';
-
+import { Http } from '@angular/http';
 @Injectable({
   providedIn: 'root'
 })
 export class AmadeusService {
-
-  constructor() { }
+  url1;
+  url2; url3; url4;
+  constructor(private http: Http) {
+    this.url1 = 'http://api.sandbox.amadeus.com/v1.2/cars/search-airport?location=';
+    this.url2 = '&pick_up=';
+    this.url3 = '&drop_off=';
+    this.url4 = '&apikey=QmERCpEBi4SBw8aRLxvz89BWg8tr8Ijw';
+  }
+  LoadData(city, pick_up, drop_off) {
+    return this.http.get(this.url1 + '' + city + '' + this.url2 + '' + pick_up + '' + this.url3 + '' + drop_off + '' + this.url4 );
 }
+  }
