@@ -1,147 +1,73 @@
 <div class="container-fluid" id="cont">
-  <h3 id="titr"> RESERVATION DE VOITURE <br> -- AEROPORT -- </h3>
-  <form id="res">
-    <div class="form-row">
-      <div class="col">
-        <div class="from-depart">
-          <label>Choisir un aéroport</label>
-          <div class="input-group">
-            <input type="text">
+
+    <h3 id="titr"> RESERVATION DE VOITURE <br> -- AEROPORT -- </h3>
+    <form  #userForm="ngForm">
+      <div class="form-row">
+        <div class="col">
+          <div class="from-depart">
+            <label>Choisir un aéroport</label>
+            <div class="input-group">
+              <input type="text" name="city" [(ngModel)]="city">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="from-date">
+        <div class="col">
+          <div class="from-date">
+            <div class="day-selector">
+              <label for="from-day">Date de départ</label>
+              <div class="input-group">
+                <input id="from-day" type="date" class="form-control" [(ngModel)]="pick_up"name="pick_up">
+              </div>
+            </div>
+            <div class="time-selector">
+              <label for="from-time"></label>
+              <div class="input-group">
+                <label for="from-time" class="input-group-addon"></label>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
           <div class="day-selector">
-            <label for="from-day">Date de départ</label>
+            <label>Date de retour</label>
             <div class="input-group">
-              <input id="from-day" type="text" class="form-control">
+              <input id="to-day" type="date" class="form-control" [(ngModel)]="drop_off"name="drop_off">
             </div>
           </div>
           <div class="time-selector">
             <label for="from-time"></label>
             <div class="input-group">
-              <label for="from-time" class="input-group-addon"></label>
-              <select id="from-time" class="form-control">
-                <option>00:00</option>
-                <option>00:30</option>
-                <option>01:00</option>
-                <option>01:30</option>
-                <option>02:00</option>
-                <option>02:30</option>
-                <option>03:00</option>
-                <option>03:30</option>
-                <option>04:00</option>
-                <option>04:30</option>
-                <option>05:00</option>
-                <option>05:30</option>
-                <option>06:00</option>
-                <option>06:30</option>
-                <option>07:00</option>
-                <option>07:30</option>
-                <option>08:00</option>
-                <option>08:30</option>
-                <option>09:00</option>
-                <option>09:30</option>
-                <option>10:00</option>
-                <option>10:30</option>
-                <option>11:00</option>
-                <option>11:30</option>
-                <option>12:00</option>
-                <option>12:30</option>
-                <option>13:00</option>
-                <option>13:30</option>
-                <option>14:00</option>
-                <option>14:30</option>
-                <option>15:00</option>
-                <option>15:30</option>
-                <option>16:00</option>
-                <option>16:30</option>
-                <option>17:00</option>
-                <option>17:30</option>
-                <option>18:00</option>
-                <option>18:30</option>
-                <option>19:00</option>
-                <option>19:30</option>
-                <option>20:00</option>
-                <option>20:30</option>
-                <option>21:00</option>
-                <option>21:30</option>
-                <option>22:00</option>
-                <option>22:30</option>
-                <option>23:00</option>
-                <option>23:30</option>
-              </select>
+              <label for="to-time" class="input-group-addon"></label>
             </div>
           </div>
         </div>
       </div>
+      <button class="btn btn-primary btn-gradient btn-cta btn-rounded" (click)="Save(city,pick_up,drop_off)" aria-label="Toggle ngShow"
+        id="save">Rechercher</button>
 
 
-      <div class="col">
-        <div class="day-selector">
-          <label>Date de retour</label>
-          <div class="input-group">
-            <input id="to-day" type="text" class="form-control">
-          </div>
-        </div>
-        <div class="time-selector">
-          <label for="from-time"></label>
-          <div class="input-group">
-            <label for="to-time" class="input-group-addon"></label>
-            <select id="to-time" class="form-control">
-              <option>00:00</option>
-              <option>00:30</option>
-              <option>01:00</option>
-              <option>01:30</option>
-              <option>02:00</option>
-              <option>02:30</option>
-              <option>03:00</option>
-              <option>03:30</option>
-              <option>04:00</option>
-              <option>04:30</option>
-              <option>05:00</option>
-              <option>05:30</option>
-              <option>06:00</option>
-              <option>06:30</option>
-              <option>07:00</option>
-              <option>07:30</option>
-              <option>08:00</option>
-              <option>08:30</option>
-              <option>09:00</option>
-              <option>09:30</option>
-              <option>10:00</option>
-              <option>10:30</option>
-              <option>11:00</option>
-              <option>11:30</option>
-              <option>12:00</option>
-              <option>12:30</option>
-              <option>13:00</option>
-              <option>13:30</option>
-              <option>14:00</option>
-              <option>14:30</option>
-              <option>15:00</option>
-              <option>15:30</option>
-              <option>16:00</option>
-              <option>16:30</option>
-              <option>17:00</option>
-              <option>17:30</option>
-              <option>18:00</option>
-              <option>18:30</option>
-              <option>19:00</option>
-              <option>19:30</option>
-              <option>20:00</option>
-              <option>20:30</option>
-              <option>21:00</option>
-              <option>21:30</option>
-              <option>22:00</option>
-              <option>22:30</option>
-              <option>23:00</option>
-              <option>23:30</option>
-            </select> </div>
-        </div>
+      </form>
       </div>
-    </div>
-    <button type="submit" class="btn btn-primary btn-gradient btn-cta btn-rounded">Rechercher</button>
-  </form>
-</div>
+      <section>
+       <div *ngFor="let i of datas?.results;" class="row">
+                <div *ngFor="let j of i.cars" class="col-md-3">
+                  <div class="card">
+
+                      <div *ngFor="let img of j.images">
+                        <img   src={{img.url}} alt="Card image cap">
+                      </div>
+
+                        <div *ngFor="let x of j.rates">
+                                  <h3>{{j.vehicle_info.acriss_code}}</h3>
+                                <p class="card-title">{{x.price.amount}}tnd</p>
+                                <p class="card-title">{{x.price.currency}}$</p>
+
+                      </div>
+                  </div>
+                </div>
+                </div>
+                </section>
+
+
