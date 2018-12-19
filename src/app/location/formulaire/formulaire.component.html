@@ -1,13 +1,21 @@
 <div class="container-fluid" id="cont">
+  <h3 id="titr"> RESERVATION DE VOITURE <br> -- AEROPORT -- </h3>
+  <form id="res">
+    <div class="form-row">
+      <div class="col">
+        <div class="from-depart">
+          <label>Choisir un aéroport</label>
+          <div class="input-group">
+            <input type="text" [(ngModel)]="saisi" name ="saisi" (ngModelChange)="surchaero()" value={{selectedlab}}>
+            <div *ngIf="state">
+              <tr>
+                <div *ngFor="let i of test; index as k">
 
-    <h3 id="titr"> RESERVATION DE VOITURE <br> -- AEROPORT -- </h3>
-    <form  #userForm="ngForm">
-      <div class="form-row">
-        <div class="col">
-          <div class="from-depart">
-            <label>Choisir un aéroport</label>
-            <div class="input-group">
-              <input type="text" name="city" [(ngModel)]="city">
+                  <td (mouseenter)="mouseEnter(k) " (mouseleave)="mouseLeave(k) " [ngClass]="{'actiiiv':tab[k]}"><a (click)="selectaero(i.value,i.label)" >{{i.label}}</a></td>
+                </div>
+              </tr>
+
+
             </div>
           </div>
         </div>
