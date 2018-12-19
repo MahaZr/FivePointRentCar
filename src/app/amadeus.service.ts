@@ -15,4 +15,7 @@ export class AmadeusService {
   LoadData(city, pick_up, drop_off) {
     return this.http.get(this.url1 + '' + city + '' + this.url2 + '' + pick_up + '' + this.url3 + '' + drop_off + '' + this.url4 );
 }
+getaero(carc : string){
+  return this.http.get('https://cors.io/?https://api.sandbox.amadeus.com/v1.2/airports/autocomplete?apikey=Aj6oZvpsUpofXQG0jmFfXed5sds1THuy&term='+carc);
+}
   }

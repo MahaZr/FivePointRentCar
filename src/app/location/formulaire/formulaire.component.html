@@ -6,7 +6,17 @@
         <div class="from-depart">
           <label>Choisir un aéroport</label>
           <div class="input-group">
-            <input type="text">
+            <input type="text" [(ngModel)]="saisi" name ="saisi" (ngModelChange)="surchaero()" value={{selectedlab}}>
+            <div *ngIf="state">
+              <tr>
+                <div *ngFor="let i of test; index as k">
+            
+                  <td (mouseenter)="mouseEnter(k) " (mouseleave)="mouseLeave(k) " [ngClass]="{'actiiiv':tab[k]}"><a (click)="selectaero(i.value,i.label)" >{{i.label}}</a></td>
+                </div>
+              </tr>
+              
+            
+            </div>
           </div>
         </div>
       </div>
