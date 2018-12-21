@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AmadeusService } from './../../amadeus.service';
-
 @Component({
   selector: 'app-formulaire',
   templateUrl: './formulaire.component.html',
@@ -67,6 +66,3 @@ export class FormulaireComponent implements OnInit {
   }
 
 }
-
-
-
