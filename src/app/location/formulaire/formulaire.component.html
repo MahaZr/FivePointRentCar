@@ -7,16 +7,17 @@
           <label>Choisir un aéroport</label>
           <div class="input-group">
             <p>ata na7iha</p>
-            <input type="text" [(ngModel)]="saisi" name ="saisi" (ngModelChange)="surchaero()" value={{selectedlab}}>
+            <input type="text" [(ngModel)]="saisi" name="saisi" (ngModelChange)="surchaero()" value={{selectedlab}}>
             <div *ngIf="state">
               <tr>
                 <div *ngFor="let i of test; index as k">
-            
-                  <td (mouseenter)="mouseEnter(k) " (mouseleave)="mouseLeave(k) " [ngClass]="{'actiiiv':tab[k]}"><a (click)="selectaero(i.value,i.label)" >{{i.label}}</a></td>
+
+                  <td (mouseenter)="mouseEnter(k) " (mouseleave)="mouseLeave(k) " [ngClass]="{'actiiiv':tab[k]}"><a
+                      (click)="selectaero(i.value,i.label)">{{i.label}}</a></td>
                 </div>
               </tr>
-              
-            
+
+
             </div>
           </div>
         </div>
@@ -26,8 +27,7 @@
           <div class="day-selector">
             <label for="from-day">Date de départ</label>
             <div class="input-group">
-              <input id="from-day" type="text" class="form-control">
-            </div>
+              <input id="from-day" type="date" class="form-control" [(ngModel)]="pick_up" name="pick_up"> </div>
           </div>
           <div class="time-selector">
             <label for="from-time"></label>
@@ -88,13 +88,11 @@
         </div>
       </div>
 
-
       <div class="col">
         <div class="day-selector">
           <label>Date de retour</label>
           <div class="input-group">
-            <input id="to-day" type="text" class="form-control">
-          </div>
+            <input id="to-day" type="date" class="form-control" [(ngModel)]="drop_off" name="drop_off"> </div>
         </div>
         <div class="time-selector">
           <label for="from-time"></label>
@@ -153,6 +151,25 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary btn-gradient btn-cta btn-rounded">Rechercher</button>
-  </form>
-</div>
+    <button class="btn btn-primary btn-gradient btn-cta btn-rounded" (click)="Save(saisi,pick_up,drop_off)" aria-label="Toggle ngShow"
+      id="save">Rechercher</button>
+  </form></div>
+  <section>
+    <div *ngFor="let i of datas?.results;" class="row">
+      <div *ngFor="let j of i.cars" class="col-md-3">
+        <div class="card">
+
+          <div *ngFor="let img of j.images">
+            <img src={{img.url}} alt="Card image cap">
+          </div>
+
+          <div *ngFor="let x of j.rates">
+            <h3>{{j.vehicle_info.acriss_code}}</h3>
+            <p class="card-title">{{x.price.amount}}tnd</p>
+            <p class="card-title">{{x.price.currency}}$</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

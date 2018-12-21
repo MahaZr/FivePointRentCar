@@ -21,8 +21,8 @@ export class FormulaireComponent implements OnInit {
   public tab = [];
   constructor(public data: AmadeusService) { }
 
-  Save(city, pick_up, drop_off) {
-    this.data.LoadData(city, pick_up, drop_off).subscribe(file => {
+  Save(selectedAero, pick_up, drop_off) {
+    this.data.LoadData(selectedAero, pick_up, drop_off).subscribe(file => {
       console.log(file.json());
       this.datas = file.json();
     });
