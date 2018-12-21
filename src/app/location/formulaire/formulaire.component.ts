@@ -30,23 +30,22 @@ export class FormulaireComponent implements OnInit {
   ngOnInit() {
   }
 
-  surchaero(){
-  console.log(this.saisi);
-    if(this.saisi.length > 2) {
+  surchaero() {
+    console.log(this.saisi);
+    if (this.saisi.length > 2) {
 
-      this.state= true;
-        this.data.getaero(this.saisi).subscribe(file1 => {
-          this.test=file1.json();
-        for(let i of this.test){
-          this.tab[i]=false ;
+      this.state = true;
+      this.data.getaero(this.saisi).subscribe(file1 => {
+        this.test = file1.json();
+        for (const i of this.test) {
+          this.tab[i] = false;
         }
-        
-        });
-      }
-      else {
-        this.state = false ;
-      }
-      }
+
+      });
+    } else {
+      this.state = false;
+    }
+  }
   selectaero(value: string, value2: string) {
     this.selectedAero = value;
     this.selectedlab = value2;
