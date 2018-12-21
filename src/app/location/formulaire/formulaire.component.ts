@@ -37,13 +37,12 @@ export class FormulaireComponent implements OnInit {
       this.state = true;
       this.data.getaero(this.saisi).subscribe(file1 => {
         this.test = file1.json();
-        for (let i of this.test) {
+        for (const i of this.test) {
           this.tab[i] = false;
         }
 
       });
-    }
-    else {
+    } else {
       this.state = false;
     }
   }
