@@ -24,11 +24,18 @@ export class FormulaireComponent implements OnInit {
   public state = true;
   public actiiiiv = false;
   public tab = [];
+ 
+  k = 0;
+  myProvider;
+
+  state1 = false;
+  maxval;
+  
   minValue: number = 100;
   maxValue: number = 400;
   options: Options = {
     floor: 0,
-    ceil: 500,
+    ceil: 1000,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
@@ -40,10 +47,6 @@ export class FormulaireComponent implements OnInit {
       }
     }
   };
-  k = 0;
-  myProvider;
-  state1 = false;
-  maxval;
   constructor(public data: AmadeusService) { }
 
   Save(selectedAero, pick_up, drop_off) {
@@ -59,14 +62,10 @@ export class FormulaireComponent implements OnInit {
 
       }
 
-
-
-
-
     });
 
   }
-  switchstate() {
+  selectprovider() {
     for (var i=0;i< this.datasfil.results.length;i++) {
       for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
         if (this.datasfil.results[i].provider.company_code !== this.myProvider) {
@@ -77,20 +76,33 @@ export class FormulaireComponent implements OnInit {
       }
     }
   }
-  max(maxval1){
-    console.log(maxval1);
-    maxval1=parseInt(maxval1);
-    var s;
+  max(maxval1 : number,minval1:Number){
+    
+   
+    var s : Number;
+    var verif :boolean;
+    console.log(maxval1,minval1);
+    for (var i=0;i< this.datasfil.results.length;i++) {
+      for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
+        this.datasfil.results[i].cars[j].vehicle_info.filtred = true;
+      }
+
+    }
+    
     for (var i=0;i< this.datasfil.results.length;i++) {
       for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
        s = parseInt( this.datasfil.results[i].cars[j].rates[0].price.amount);
-        if ( s>maxval1) {
-          this.datasfil.results[i].cars[j].vehicle_info.filtred = false;
+       
+       verif = !(s>minval1 && s<maxval1);
+       console.log(minval1,s,maxval1,verif);
+       
+
+        if ( verif) {
+          this.datasfil.results[i].cars[j].vehicle_info.filtred = false
         }
-
-
       }
     }
+    
 
   }
       ngOnInit() {
