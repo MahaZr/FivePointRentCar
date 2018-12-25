@@ -14,7 +14,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormulaireComponent } from './location/formulaire/formulaire.component';
 import { HttpModule } from '@angular/http';
 import { AmadeusService } from './amadeus.service';
-
+import { Ng5SliderModule } from 'ng5-slider';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { AmadeusService } from './amadeus.service';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    Ng5SliderModule,
     HttpModule
   ],
   providers: [AmadeusService],

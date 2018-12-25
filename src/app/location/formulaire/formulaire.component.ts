@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AmadeusService } from './../../amadeus.service';
+import { Options } from 'ng5-slider';
+import {LabelType} from 'ng5-slider';
 @Component({
   selector: 'app-formulaire',
   templateUrl: './formulaire.component.html',
@@ -19,6 +21,22 @@ export class FormulaireComponent implements OnInit {
   public state = true;
   public actiiiiv = false;
   public tab = [];
+  minValue: number = 100;
+  maxValue: number = 400;
+  options: Options = {
+    floor: 0,
+    ceil: 500,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<b>Min price:</b> $' + value;
+        case LabelType.High:
+          return '<b>Max price:</b> $' + value;
+        default:
+          return '$' + value;
+      }
+    }
+  };
   constructor(public data: AmadeusService) { }
 
   Save(selectedAero, pick_up, drop_off) {

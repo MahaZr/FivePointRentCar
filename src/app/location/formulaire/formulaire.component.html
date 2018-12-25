@@ -33,7 +33,7 @@
             <label for="from-time"></label>
             <div class="input-group">
               <label for="from-time" class="input-group-addon"></label>
-                          </div>
+            </div>
           </div>
         </div>
       </div>
@@ -48,29 +48,47 @@
           <label for="from-time"></label>
           <div class="input-group">
             <label for="to-time" class="input-group-addon"></label>
-             </div>
+          </div>
         </div>
       </div>
     </div>
     <button class="btn btn-primary btn-gradient btn-cta btn-rounded" (click)="Save(saisi,pick_up,drop_off)" aria-label="Toggle ngShow"
       id="save">Rechercher</button>
-  </form></div>
-  <section>
-    <div *ngFor="let i of datas?.results;" class="row">
-      <div *ngFor="let j of i.cars" class="col-md-3">
-        <div class="card">
+  </form>
+</div>
 
-          <div *ngFor="let img of j.images">
-            <img src={{img.url}} alt="Card image cap">
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="container-fluid">
+        <form>
+
+          <div class="form-group">
+            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+            <p>{{minValue}} {{maxValue}}</p>
           </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div *ngFor="let i of datas?.results;" class="row" style="padding-left: 5rem !important">
+        <div *ngFor="let j of i.cars">
+          <div class="card" style="width: 16rem; margin: 1rem !important; ">
 
-          <div *ngFor="let x of j.rates">
-            <h3>{{j.vehicle_info.acriss_code}}</h3>
-            <p class="card-title">{{x.price.amount}}</p>
-            <p class="card-title">{{x.price.currency}}</p>
+            <div *ngFor="let img of j.images">
+              <img src={{img.url}} class="card-img-top" alt="Card image cap">
+            </div>
+            <div class="card-body">
+              <div *ngFor="let x of j.rates">
+                <h3>{{j.vehicle_info.acriss_code}}</h3>
+                <p class="card-title">{{x.price.amount}}</p>
+                <p class="card-title">{{x.price.currency}}</p>
 
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
