@@ -14,7 +14,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { FormulaireComponent } from './location/formulaire/formulaire.component';
 import { HttpModule } from '@angular/http';
 import { AmadeusService } from './amadeus.service';
-import { FilterComponent } from './location/filter/filter.component';
+import { FilterComponent } from './location/formulaire/filter/filter.component';
+
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FilterComponent } from './location/filter/filter.component';
     FooterComponent,
     FormulaireComponent,
     FilterComponent
+   
 
   ],
   imports: [
@@ -34,8 +36,8 @@ import { FilterComponent } from './location/filter/filter.component';
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    HttpModule
-  ],
+    HttpModule,
+    ],
   providers: [AmadeusService],
   bootstrap: [AppComponent]
 })
