@@ -56,8 +56,20 @@
       id="save">Rechercher</button>
   </form></div>
   <section>
-    <div *ngFor="let i of datas?.results;" class="row">
+    <button (click)="switchstate()">clickme</button>
+      
+      <select [(ngModel)]="myProvider">
+        
+          <option value="{{s.provider.company_code}}" *ngFor="let s of datas?.results"> {{s.provider.company_name}}</option>
+        
+
+      </select>
+      <input type="text" [(ngModel)]="maxval" name="maxval">
+      <button (click)="max(maxval)">max</button>
+      
+    <div *ngFor="let i of datasfil?.results;" class="row">
       <div *ngFor="let j of i.cars" class="col-md-3">
+        <div *ngIf="j.vehicle_info.filtred">
         <div class="card">
 
           <div *ngFor="let img of j.images">
@@ -71,6 +83,7 @@
 
           </div>
         </div>
+      </div>
       </div>
     </div>
   </section>
