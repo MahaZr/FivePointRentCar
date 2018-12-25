@@ -15,6 +15,9 @@ import { FormulaireComponent } from './location/formulaire/formulaire.component'
 import { HttpModule } from '@angular/http';
 import { AmadeusService } from './amadeus.service';
 import { Ng5SliderModule } from 'ng5-slider';
+import { FilterComponent } from './location/formulaire/filter/filter.component';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { Ng5SliderModule } from 'ng5-slider';
     LocationComponent,
     HeaderComponent,
     FooterComponent,
-    FormulaireComponent
+    FormulaireComponent,
+    FilterComponent
+   
 
   ],
   imports: [

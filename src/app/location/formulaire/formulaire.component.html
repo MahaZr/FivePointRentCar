@@ -54,8 +54,23 @@
     </div>
     <button class="btn btn-primary btn-gradient btn-cta btn-rounded" (click)="Save(saisi,pick_up,drop_off)" aria-label="Toggle ngShow"
       id="save">Rechercher</button>
-  </form>
-</div>
+  </form></div>
+  <section>
+    <button (click)="switchstate()">clickme</button>
+      
+      <select [(ngModel)]="myProvider">
+        
+          <option value="{{s.provider.company_code}}" *ngFor="let s of datas?.results"> {{s.provider.company_name}}</option>
+        
+
+      </select>
+      <input type="text" [(ngModel)]="maxval" name="maxval">
+      <button (click)="max(maxval)">max</button>
+      
+    <div *ngFor="let i of datasfil?.results;" class="row">
+      <div *ngFor="let j of i.cars" class="col-md-3">
+        <div *ngIf="j.vehicle_info.filtred">
+        <div class="card">
 
 <section>
   <div class="row">
@@ -88,6 +103,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
