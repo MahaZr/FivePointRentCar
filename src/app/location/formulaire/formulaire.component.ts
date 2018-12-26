@@ -24,6 +24,7 @@ export class FormulaireComponent implements OnInit {
   public state = true;
   public actiiiiv = false;
   public tab = [];
+  public tab2 =[];
  
   k = 0;
   myProvider;
@@ -51,8 +52,13 @@ export class FormulaireComponent implements OnInit {
 
   Save(selectedAero, pick_up, drop_off) {
     this.data.LoadData(selectedAero, pick_up, drop_off).subscribe(file => {
-      console.log(file.json());
+      
       this.datas = file.json();
+      for (var i=0; i<this.datas.results.length;i++) {
+        this.tab2[i] = false;
+      }
+      console.log(this.datas.results.length);
+      console.log(this.tab2);
       this.datasfil = this.datas;
 
       for (var i=0;i< this.datasfil.results.length;i++) {
@@ -65,10 +71,10 @@ export class FormulaireComponent implements OnInit {
     });
 
   }
-  selectprovider() {
+  selectprovider(prov : string) {
     for (var i=0;i< this.datasfil.results.length;i++) {
       for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
-        if (this.datasfil.results[i].provider.company_code !== this.myProvider) {
+        if (this.datasfil.results[i].provider.company_code !== prov) {
           this.datasfil.results[i].cars[j].vehicle_info.filtred = false;
         }
 
@@ -140,6 +146,18 @@ export class FormulaireComponent implements OnInit {
       }
       mouseLeave(k) {
         this.tab[k] = false;
+      }
+
+      mouseEnter2(k) {
+
+        this.tab2[k] = true;
+        console.log(this.tab2);
+
+
+
+      }
+      mouseLeave2(k) {
+        this.tab2[k] = false;
       }
 
     }

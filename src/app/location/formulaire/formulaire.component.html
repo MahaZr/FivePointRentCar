@@ -68,14 +68,25 @@
   <div class="row">
     <div class="col-md-3">
       <div class="container-fluid">
-        <button (click)="selectprovider()">clickme</button>
+        
+        <div class="input-group">
+          
+            
+            
+              <tr>
+                <div *ngFor="let s of datas?.results ; index as k ">
 
-        <select [(ngModel)]="myProvider">
+                  <td (mouseenter)="mouseEnter2(k) " (mouseleave)="mouseLeave2(k) " [ngClass]="{'actiiiv':tab2[k]}"><a
+                      (click)="selectprovider(s.provider.company_code)">{{s.provider.company_name}}</a></td>
+                </div>
+                </tr>
+              
 
-          <option value="{{s.provider.company_code}}" *ngFor="let s of datas?.results"> {{s.provider.company_name}}</option>
 
+            </div>
+          
 
-        </select>
+       
        
         
         <form>
