@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AmadeusService } from './../../amadeus.service';
+import { Options } from 'ng5-slider';
+import {LabelType} from 'ng5-slider';
 import { delay } from 'rxjs/operators';
 @Component({
   selector: 'app-formulaire',
@@ -22,16 +24,41 @@ export class FormulaireComponent implements OnInit {
   public state = true;
   public actiiiiv = false;
   public tab = [];
+  public tab2 =[];
+ 
   k = 0;
   myProvider;
+
   state1 = false;
   maxval;
+  
+  minValue: number = 100;
+  maxValue: number = 400;
+  options: Options = {
+    floor: 0,
+    ceil: 1000,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return '<b>Min price:</b> $' + value;
+        case LabelType.High:
+          return '<b>Max price:</b> $' + value;
+        default:
+          return '$' + value;
+      }
+    }
+  };
   constructor(public data: AmadeusService) { }
 
   Save(selectedAero, pick_up, drop_off) {
     this.data.LoadData(selectedAero, pick_up, drop_off).subscribe(file => {
-      console.log(file.json());
+      
       this.datas = file.json();
+      for (var i=0; i<this.datas.results.length;i++) {
+        this.tab2[i] = false;
+      }
+      console.log(this.datas.results.length);
+      console.log(this.tab2);
       this.datasfil = this.datas;
 
       for (var i=0;i< this.datasfil.results.length;i++) {
@@ -41,17 +68,13 @@ export class FormulaireComponent implements OnInit {
 
       }
 
-
-
-
-
     });
 
   }
-  switchstate() {
+  selectprovider(prov : string) {
     for (var i=0;i< this.datasfil.results.length;i++) {
       for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
-        if (this.datasfil.results[i].provider.company_code !== this.myProvider) {
+        if (this.datasfil.results[i].provider.company_code !== prov) {
           this.datasfil.results[i].cars[j].vehicle_info.filtred = false;
         }
 
@@ -59,20 +82,33 @@ export class FormulaireComponent implements OnInit {
       }
     }
   }
-  max(maxval1){
-    console.log(maxval1);
-    maxval1=parseInt(maxval1);
-    var s;
+  max(maxval1 : number,minval1:Number){
+    
+   
+    var s : Number;
+    var verif :boolean;
+    console.log(maxval1,minval1);
+    for (var i=0;i< this.datasfil.results.length;i++) {
+      for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
+        this.datasfil.results[i].cars[j].vehicle_info.filtred = true;
+      }
+
+    }
+    
     for (var i=0;i< this.datasfil.results.length;i++) {
       for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
        s = parseInt( this.datasfil.results[i].cars[j].rates[0].price.amount);
-        if ( s>maxval1) {
-          this.datasfil.results[i].cars[j].vehicle_info.filtred = false;
+       
+       verif = !(s>minval1 && s<maxval1);
+       console.log(minval1,s,maxval1,verif);
+       
+
+        if ( verif) {
+          this.datasfil.results[i].cars[j].vehicle_info.filtred = false
         }
-
-
       }
     }
+    
 
   }
       ngOnInit() {
@@ -110,6 +146,18 @@ export class FormulaireComponent implements OnInit {
       }
       mouseLeave(k) {
         this.tab[k] = false;
+      }
+
+      mouseEnter2(k) {
+
+        this.tab2[k] = true;
+        console.log(this.tab2);
+
+
+
+      }
+      mouseLeave2(k) {
+        this.tab2[k] = false;
       }
 
     }

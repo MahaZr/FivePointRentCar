@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AmadeusService } from '../../../amadeus.service';
-import {coerceNumberProperty} from '@angular/cdk/coercion';
 
 
 @Component({

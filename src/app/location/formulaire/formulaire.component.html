@@ -33,7 +33,7 @@
             <label for="from-time"></label>
             <div class="input-group">
               <label for="from-time" class="input-group-addon"></label>
-                          </div>
+            </div>
           </div>
         </div>
       </div>
@@ -48,42 +48,78 @@
           <label for="from-time"></label>
           <div class="input-group">
             <label for="to-time" class="input-group-addon"></label>
-             </div>
+          </div>
         </div>
       </div>
     </div>
     <button class="btn btn-primary btn-gradient btn-cta btn-rounded" (click)="Save(saisi,pick_up,drop_off)" aria-label="Toggle ngShow"
       id="save">Rechercher</button>
-  </form></div>
-  <section>
-    <button (click)="switchstate()">clickme</button>
-      
-      <select [(ngModel)]="myProvider">
-        
-          <option value="{{s.provider.company_code}}" *ngFor="let s of datas?.results"> {{s.provider.company_name}}</option>
-        
+  </form>
+</div>
 
-      </select>
-      <input type="text" [(ngModel)]="maxval" name="maxval">
-      <button (click)="max(maxval)">max</button>
-      
-    <div *ngFor="let i of datasfil?.results;" class="row">
-      <div *ngFor="let j of i.cars" class="col-md-3">
-        <div *ngIf="j.vehicle_info.filtred">
-        <div class="card">
 
-          <div *ngFor="let img of j.images">
-            <img src={{img.url}} alt="Card image cap">
+
+
+
+
+
+
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="container-fluid">
+        
+        <div class="input-group">
+          
+            
+            
+              <tr>
+                <div *ngFor="let s of datas?.results ; index as k ">
+
+                  <td (mouseenter)="mouseEnter2(k) " (mouseleave)="mouseLeave2(k) " [ngClass]="{'actiiiv':tab2[k]}"><a
+                      (click)="selectprovider(s.provider.company_code)">{{s.provider.company_name}}</a></td>
+                </div>
+                </tr>
+              
+
+
+            </div>
+          
+
+       
+       
+        
+        <form>
+
+          <div class="form-group">
+            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+            <p>{{minValue}} {{maxValue}}</p>
+            <button (click)="max(maxValue,minValue)">min/max</button>
           </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div *ngFor="let i of datasfil?.results;" class="row" style="padding-left: 5rem !important">
+        <div *ngFor="let j of i.cars">
+          <div *ngIf="j.vehicle_info.filtred">
+            <div class="card" style="width: 16rem; margin: 1rem !important; ">
 
-          <div *ngFor="let x of j.rates">
-            <h3>{{j.vehicle_info.acriss_code}}</h3>
-            <p class="card-title">{{x.price.amount}}</p>
-            <p class="card-title">{{x.price.currency}}</p>
+              <div *ngFor="let img of j.images">
+                <img src={{img.url}} class="card-img-top" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                <div *ngFor="let x of j.rates">
+                  <h3>{{j.vehicle_info.acriss_code}}</h3>
+                  <p class="card-title">{{x.price.amount}}</p>
+                  <p class="card-title">{{x.price.currency}}</p>
 
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      </div>
     </div>
-  </section>
+  </div>
+</section>
