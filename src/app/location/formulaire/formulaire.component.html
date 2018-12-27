@@ -12,7 +12,7 @@
               <tr>
                 <div *ngFor="let i of test; index as k">
 
-                  <td (mouseenter)="mouseEnter(k) " (mouseleave)="mouseLeave(k) " [ngClass]="{'actiiiv':tab[k]}">
+                  <td (mouseenter)="mouseEnter(k) " (mouseleave)="mouseLeave(k) " style ="background-color: beige;" [ngClass]="{'actiiiv':tab[k]}">
                     <a (click)="selectaero(i.value,i.label)" style="cursor:pointer">{{i.label}}</a>
                   </td>
                 </div>
