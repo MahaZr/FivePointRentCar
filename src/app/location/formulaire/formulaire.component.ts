@@ -23,6 +23,7 @@ export class FormulaireComponent implements OnInit {
   public selectedlab = '';
   public state = true;
   public actiiiiv = false;
+  public hider = false;
   public tab = [];
   public tab2 =[];
  
@@ -60,7 +61,7 @@ export class FormulaireComponent implements OnInit {
       console.log(this.datas.results.length);
       console.log(this.tab2);
       this.datasfil = this.datas;
-
+      this.hider = true;
       for (var i=0;i< this.datasfil.results.length;i++) {
         for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
           this.datasfil.results[i].cars[j].vehicle_info.filtred = true;

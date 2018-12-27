@@ -1,22 +1,22 @@
 <div class="container-fluid" id="cont">
-  <h3 id="titr"> RESERVATION DE VOITURE <br> -- AEROPORT -- </h3>
+  <h3 id="titr"> RESERVATION DE VOITURE
+    <br> -- AEROPORT -- </h3>
   <form id="res">
     <div class="form-row">
       <div class="col">
         <div class="from-depart">
-          <label>Choisir un aéroport</label>
-          <div class="input-group">
-            <p>ata na7iha</p>
+          <label class="check">Choisir un aéroport</label>
+          <div class="input-group1">
             <input type="text" [(ngModel)]="saisi" name="saisi" (ngModelChange)="surchaero()" value={{selectedlab}}>
             <div *ngIf="state">
               <tr>
                 <div *ngFor="let i of test; index as k">
 
-                  <td (mouseenter)="mouseEnter(k) " (mouseleave)="mouseLeave(k) " [ngClass]="{'actiiiv':tab[k]}"><a
-                      (click)="selectaero(i.value,i.label)">{{i.label}}</a></td>
+                  <td (mouseenter)="mouseEnter(k) " (mouseleave)="mouseLeave(k) " [ngClass]="{'actiiiv':tab[k]}">
+                    <a (click)="selectaero(i.value,i.label)" style="cursor:pointer">{{i.label}}</a>
+                  </td>
                 </div>
               </tr>
-
 
             </div>
           </div>
@@ -25,7 +25,7 @@
       <div class="col">
         <div class="from-date">
           <div class="day-selector">
-            <label for="from-day">Date de départ</label>
+            <label for="from-day" class="check">Date de départ</label>
             <div class="input-group">
               <input id="from-day" type="date" class="form-control" [(ngModel)]="pick_up" name="pick_up"> </div>
           </div>
@@ -40,7 +40,7 @@
 
       <div class="col">
         <div class="day-selector">
-          <label>Date de retour</label>
+          <label class="check">Date de retour</label>
           <div class="input-group">
             <input id="to-day" type="date" class="form-control" [(ngModel)]="drop_off" name="drop_off"> </div>
         </div>
@@ -57,104 +57,104 @@
   </form>
 </div>
 
-
-
-
-
-
-
-
-<section>
+<section class="theme">
   <div class="row">
     <div class="col-md-3">
       <div class="container-fluid">
+        <div class="filter">
 
-        <div class="input-group">
+          <div *ngIf="hider">
+            <div class="box-filter" class="shadow-lg p-3 mb-5 bg-white rounded">
+              <form>
 
+                <div class="form-group">
+                  <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                  <div class="value">
+                    <button (click)="max(maxValue,minValue)" type="button" class="btn btn-success">min/max</button>
+                  </div>
+                </div>
+              </form>
 
+              <div class="input-group">
 
-          <tr>
-            <div *ngFor="let s of datas?.results ; index as k ">
+                <tr>
+                  <div *ngFor="let s of datas?.results ; index as k ">
 
-              <td (mouseenter)="mouseEnter2(k) " (mouseleave)="mouseLeave2(k) " [ngClass]="{'actiiiv':tab2[k]}"><a
-                  (click)="selectprovider(s.provider.company_code)">{{s.provider.company_name}}</a></td>
+                    <td (mouseenter)="mouseEnter2(k) " (mouseleave)="mouseLeave2(k) " [ngClass]="{'actiiiv':tab2[k]}">
+                      <a (click)="selectprovider(s.provider.company_code)" style="cursor:pointer">{{s.provider.company_name}}</a>
+                    </td>
+                  </div>
+                </tr>
+              </div>
             </div>
-          </tr>
-
-
-
-        </div>
-
-
-
-
-
-        <form>
-
-          <div class="form-group">
-            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
-            <p>{{minValue}} {{maxValue}}</p>
-            <button (click)="max(maxValue,minValue)">min/max</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
     <div class="col-md-9">
       <div *ngFor="let i of datasfil?.results;" class="row" style="padding-left: 5rem !important">
         <div *ngFor="let j of i.cars">
           <div *ngIf="j.vehicle_info.filtred">
-            <div class="card" style="width: 16rem !important; margin: 1rem !important; ">
+            <div class="card" style="width: 16rem !important; margin: 1rem !important;" class="shadow-sm p-3 mb-5 bg-white rounded">
 
               <div *ngFor="let img of j.images">
                 <img src={{img.url}} class="card-img-top" alt="Card image cap">
               </div>
               <div class="card-body">
-                
-                  <h3>{{j.vehicle_info.category}}</h3>
-                  <h3>{{j.vehicle_info.type}}</h3>
-                  <p class="card-title">{{j.rates[0].price.amount}}{{j.rates[0].price.currency}}</p>
-                  
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                    More information
-                  </button>
 
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Car & Provider information</h5>
-                          
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
+                <h3>{{j.vehicle_info.category}}</h3>
+                <h3>{{j.vehicle_info.type}}</h3>
+                <p class="card-title">{{j.rates[0].price.amount}}{{j.rates[0].price.currency}}</p>
 
-                            <h3 style="color : green !important">VEHICLE INFO</h3>
-                            <p><span style="font-weight: bold !important;">Transmission :</span> {{j.vehicle_info.transmission}} </p>
-                            <p><span style="font-weight: bold !important;">Fuel : </span>{{j.vehicle_info.fuel}} </p>
-                            <p><span style="font-weight: bold !important;">Category : </span>{{j.vehicle_info.category}} </p>
-                            <p><span style="font-weight: bold !important;">Type : </span>{{j.vehicle_info.type}} </p>
-                            <h3 style="color : green !important">PROVIDER INFO</h3>
-                            <p><span style="font-weight: bold !important;">Company Name : </span>{{i.provider.company_name}} <span>Code : </span>{{i.provider.company_code}} </p>
-                            <p><span style="font-weight: bold !important;">Adresse :</span> {{i.address.line1}} {{i.address.city}} {{i.address.region}} {{i.address.country}}</p>
-                            <h3 style="color : green !important">RATES</h3>
-                            <p><span style="font-weight: bold !important;">{{j.rates[0].type}} cost: </span>{{j.rates[0].price.amount}} {{j.rates[0].price.currency}}</p>
-                            <p><span style="font-weight: bold !important;">Total estimated cost : </span>{{j.estimated_total.amount}} {{j.estimated_total.currency}}</p>
-                          
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-success">Reserve your Car</button>
-                        </div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                  More information
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Car & Provider information</h5>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+
+                        <h3 style="color : green !important">VEHICLE INFO</h3>
+                        <p>
+                          <span style="font-weight: bold !important;">Transmission :</span> {{j.vehicle_info.transmission}} </p>
+                        <p>
+                          <span style="font-weight: bold !important;">Fuel : </span>{{j.vehicle_info.fuel}} </p>
+                        <p>
+                          <span style="font-weight: bold !important;">Category : </span>{{j.vehicle_info.category}} </p>
+                        <p>
+                          <span style="font-weight: bold !important;">Type : </span>{{j.vehicle_info.type}} </p>
+                        <h3 style="color : green !important">PROVIDER INFO</h3>
+                        <p>
+                          <span style="font-weight: bold !important;">Company Name : </span>{{i.provider.company_name}}
+                          <span>Code : </span>{{i.provider.company_code}} </p>
+                        <p>
+                          <span style="font-weight: bold !important;">Adresse :</span> {{i.address.line1}} {{i.address.city}} {{i.address.region}} {{i.address.country}}</p>
+                        <h3 style="color : green !important">RATES</h3>
+                        <p>
+                          <span style="font-weight: bold !important;">{{j.rates[0].type}} cost: </span>{{j.rates[0].price.amount}} {{j.rates[0].price.currency}}</p>
+                        <p>
+                          <span style="font-weight: bold !important;">Total estimated cost : </span>{{j.estimated_total.amount}} {{j.estimated_total.currency}}</p>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Reserve your Car</button>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                
+
               </div>
             </div>
           </div>

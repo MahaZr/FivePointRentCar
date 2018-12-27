@@ -1,23 +1,22 @@
-.bg-light {
+/*.bg-light {
     background-color: #81c75deb!important;
    
 }
-#tete
-{    
-    background-color: #81c75deb;
-    
+#location {
+    padding-left: 26px;
 }
+
 #currency
 {
 margin-left: 1000px;
 margin-top: 3px;
 
-}
+}*/
 #log {
     margin-left: 10px !important;
     margin-top: 3px;
 }
-.nav-item , .nav-link
+/*.nav-item , .nav-link
 {
     color: #0f5828 !important; 
     text-decoration-style: solid !important; 
@@ -27,16 +26,21 @@ margin-top: 3px;
 {
     margin-left: 538px ;
     margin-top: -23px;
-}
+}*/
 #logo
 {
     width: 156px;
     height: 109px;
     margin-top: -32px;
     margin-bottom: -32px;
-    margin-left: -32px;
+    margin-left: 1px;
 }
-.btn-group>.btn:not(:first-child) {
+
+#inscrit {
+    margin-right: 3px;
+}
+
+/*.btn-group>.btn:not(:first-child) {
     margin-left: 6px;
 }
 
@@ -59,4 +63,11 @@ width: 500px !important;
 .modal-header
 {
     background-color: beige;
+}*/
+
+.modal-body {
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 3rem;
 }
