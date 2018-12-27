@@ -11,28 +11,28 @@ export class FilterComponent implements OnInit {
 
   datasfiltre: any;
   datas;
-  
+
   max = 1000;
   min = 0;
 
   constructor(public data: AmadeusService) { }
 
- 
-     
-      
+
+
+
   ngOnInit() {
-   
+
   }
-  filtre(){
-  this.datas = this.data.serToFil();
+  filtre() {
+    this.datas = this.data.serToFil();
 
-  console.log(200);
+    console.log(200);
 
 
 
-  this.data.filToSer(this.datas,300);
-  console.log(400);
-} 
+    this.data.filToSer(this.datas, 300);
+    console.log(400);
+  }
 
 }
 

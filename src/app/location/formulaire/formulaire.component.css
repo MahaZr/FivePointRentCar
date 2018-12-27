@@ -1,14 +1,43 @@
 
 #cont
 {
-    background-image: url("./../../../assets/images/bg5.jpg")
+    background-image: url("./../../../assets/images/optex.jpg")
 }
 #titr
 {text-align: center !important;
 
-    color: #104c1e  !important;
+    color: #e2dd0d !important;
     margin-bottom: 88px ;
     padding-top: 61px;
+    font-family: 'Righteous', cursive;
+
+}
+
+.check {
+    color: #e2dd0d;
+}
+
+#save {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    min-width: 50px;
+    height: 50px;
+    background-color: #e2dd19;
+    border-radius: 31px;
+    font-family: 'ZCOOL XiaoWei', serif;
+    font-size: 16px;
+    color: #000;
+    line-height: 0.2;
+    text-transform: uppercase;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
 }
 .form-row
 {
@@ -86,3 +115,17 @@
 
 
 .card-header{color:dodgerblue}
+
+.theme {
+background: linear-gradient(to bottom, #ffffff 0%,#f2f2f2 100%);
+}
+
+.filter {
+    margin-left: 26px;
+    margin-top: 30px;
+}
+
+.value {
+    margin-left: 60px;
+    margin-top: 15px;
+}

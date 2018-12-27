@@ -1,122 +1,140 @@
-<form id="tete">
-  <select id="currency">
-    <option>
-      <span> $ Dollar<img src="./../../assets/images/depositphotos_187260564-stock-illustration-american-flag-logo-vector.jpg"
-          height="10px" width="10px"> </span> </option>
-    <option data-content>
-      <img src='./../../assets/images/union.png' height='10' height='10' alt='FR' selected=""> <span> £ Euro</span>
-    </option>
-    <option data-content>
-      <img src='./../../assets/images/tn.jpg' height='20' height='20' alt='FR' selected=""> <span> TND </span> </option>
-  </select>
-  <div class="btn-group" role="group" id="log">
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#regester">S'enregistrer</button>
-
-    <div class="modal fade" id="regester" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="titreModal" >ENREGISTREMENT</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <form (ngSubmit)="submit(f)" #f="ngForm"> 
-                <label> Détails personnels:</label>
-                <div class="form-group row">
-                  <div class="col-md-5" id="lab"><label> Titre *:</label></div>
-                  <div class="col-md-7" ><select ngModel name="titre">
-                      <option value="Mr"> Monsieur</option>
-                      <option value="Ms"> Madame </option>
-                    </select></div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-5" id="lab">Prénom*</div>
-                  <div class="col-md-7"> <input type="text" ngModel name="prenom"></div>
-                </div>
-                <div class="form-group row">
-
-                  <div class="col-md-5" id="lab">Nom de famille*</div>
-                  <div class="col-md-7"> <input type="text" ngModel name="nom"></div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-md-5" id="lab"> Email</div>
-                  <div class="col-md-7"> <input type="text" id="staticEmail" ngModel name="mail"></div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-5" id="lab">Password</div>
-                  <div class="col-sm-7">
-                    <input type="password" id="inputPassword" placeholder="Password" ngModel name="pwd">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-            <button type="button" class="btn btn-primary" (click)="submit(f)" data-dismiss="modal">Enregistrer</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#connect">Se connecter</button>
-    <div class="modal fade" id="connect" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="titreModal">Connexion</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-
-            <form id="form2"  >
-              <div class="form-group row">
-                <label> Nom d'utilisteur ou adresse mail :</label></div>
-              <div class="form-group row"> <input type="text" id="adr" ngModel name ="nom"> </div>
-
-              <div class="form-group row">
-                <label>Mot de passe :</label></div>
-              <div class="form-group row" > <input type="text" id="pwd"  
-                ngModel name="pwd"></div>
-
-              <div class="form-group row">
-                <input type="checkbox">Se souvenir de moi
-              </div>
-
-            </form>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-            <button type="Submit" class="btn btn-primary" (click)="onClick()">Se connecter</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-</form>
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #2c4c63;">
-  <a class="navbar-brand" href="./../../index.html"><img src="./../../assets/images/logo.png" width="100" height="80"
-      id="logo" class="d-inline-block align-top" alt=""></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: linear-gradient(to bottom, #ffffff 0%,#f2f2f2 100%);">
+  <a class="navbar-brand" href="./../../index.html">
+    <img src="./../../assets/images/logo.png" width="100" height="80" id="logo" class="d-inline-block align-top" alt="">
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">LOCATION AEROPORT <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="#">LOCATION AEROPORT
+        <span class="sr-only">(current)</span>
+      </a>
       <a class="nav-item nav-link" href="#">LOCATION PAR POSITION</a>
       <a class="nav-item nav-link" href="#">QUI SOMMMES NOUS?</a>
 
     </div>
   </div>
+  <form id="tete">
+    <select id="currency">
+      <option>
+        <span> $
+          <img src="./../../assets/images/depositphotos_187260564-stock-illustration-american-flag-logo-vector.jpg"
+            height="10px" width="10px"> </span>
+      </option>
+      <option data-content>
+        <img src='./../../assets/images/union.png' height='10' height='10' alt='FR' selected="">
+        <span> € </span>
+      </option>
+      <option data-content>
+        <img src='./../../assets/images/tn.jpg' height='20' height='20' alt='FR' selected="">
+        <span> TND </span>
+      </option>
+    </select>
+    <div class="btn-group" role="group" id="log">
+      <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#regester" id="inscrit">S'enregistrer</button>
+
+      <div class="modal fade" id="regester" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="titreModal">ENREGISTREMENT</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <form (ngSubmit)="submit(f)" #f="ngForm">
+                  <label> Détails personnels:</label>
+                  <div class="form-group row">
+                    <div class="col-md-5" id="lab">
+                      <label> Titre *:</label>
+                    </div>
+                    <div class="col-md-7">
+                      <select ngModel name="titre">
+                        <option value="Mr"> Monsieur</option>
+                        <option value="Ms"> Madame </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-5" id="lab">Prénom*</div>
+                    <div class="col-md-7">
+                      <input type="text" ngModel name="prenom">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+
+                    <div class="col-md-5" id="lab">Nom de famille*</div>
+                    <div class="col-md-7">
+                      <input type="text" ngModel name="nom">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-5" id="lab"> Email</div>
+                    <div class="col-md-7">
+                      <input type="text" id="staticEmail" ngModel name="mail">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-5" id="lab">Password</div>
+                    <div class="col-sm-7">
+                      <input type="password" id="inputPassword" placeholder="Password" ngModel name="pwd">
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+              <button type="button" class="btn btn-primary" (click)="submit(f)" data-dismiss="modal">Enregistrer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#connect">Se connecter</button>
+      <div class="modal fade" id="connect" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="titreModal">Connexion</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+              <form id="form2">
+                <div class="form-group row">
+                  <label> Nom d'utilisteur ou adresse mail :</label>
+                </div>
+                <div class="form-group row">
+                  <input type="text" id="adr" ngModel name="nom"> </div>
+
+                <div class="form-group row">
+                  <label>Mot de passe :</label>
+                </div>
+                <div class="form-group row">
+                  <input type="text" id="pwd" ngModel name="pwd">
+                </div>
+
+                <div class="form-group row">
+                  <input type="checkbox">Se souvenir de moi
+                </div>
+
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+              <button type="Submit" class="btn btn-primary" (click)="onClick()">Se connecter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 </nav>
