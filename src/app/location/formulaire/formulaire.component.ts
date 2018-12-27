@@ -75,6 +75,12 @@ export class FormulaireComponent implements OnInit {
   selectprovider(prov : string) {
     for (var i=0;i< this.datasfil.results.length;i++) {
       for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
+        this.datasfil.results[i].cars[j].vehicle_info.filtred = true;
+      }
+
+    }
+    for (var i=0;i< this.datasfil.results.length;i++) {
+      for (var j=0;j< this.datasfil.results[i].cars.length;j++) {
         if (this.datasfil.results[i].provider.company_code !== prov) {
           this.datasfil.results[i].cars[j].vehicle_info.filtred = false;
         }
